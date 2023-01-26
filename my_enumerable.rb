@@ -1,28 +1,23 @@
 module MyEnumerable
   def all?
-		for i in 0...@list.length
-			if !yield(@list[i])
-				return false
-			end
-		end
-		return true
-	end
+    (0...@list.length).each do |i|
+      return false unless yield(@list[i])
+    end
+    true
+  end
 
-	def any?
-		for i in 0...@list.length
-			if yield(@list[i])
-				return true
-			end
-		end
-		return false
-	end
-	def filter
-		results = []
-		for i in 0...@list.length
-			if yield(@list[i])
-				results.push(@list[i])
-			end
-		end
-		return results
-	end
+  def any?
+    (0...@list.length).each do |i|
+      return true if yield(@list[i])
+    end
+    false
+  end
+
+  def filter
+    results = []
+    (0...@list.length).each do |i|
+      results.push(@list[i]) if yield(@list[i])
+    end
+    results
+  end
 end

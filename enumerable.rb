@@ -1,10 +1,10 @@
 require './enumerable'
 
 class MyList
-	include MyEnumerable
+  include MyEnumerable
 
-	def initialize(*args)
-		@list = args
-	end
-	# each method
+  def initialize(*args)
+    @list = args
+  end
+  # each method
 end
